@@ -4,6 +4,24 @@
 
 <mapper namespace="com.ssm.mapper.TeacherMapper">
     <select id="selectTeacherByID" parameterType="int" resultType="com.ssm.model.Teacher">
-        SELECT * FROM `teacher` WHERE id = #{id}
+        select * from teacher where id = #{id}
+    </select>
+
+    <!-- 为了返回list 类型而定义的returnMap -->
+    <resultMap type="com.ssm.model.Teacher" id="resultListTeacher">
+        <id column="id" property="id" />
+        <result column="name" property="name" />
+        <result column="rate" property="rate" />
+        <result column="skype" property="skype" />
+        <result column="qq" property="qq" />
+        <result column="pmobile" property="pmobile" />
+        <result column="skills" property="skills" />
+        <result column="cdate" property="cdate" />
+        <result column="status" property="status" />
+    </resultMap>
+
+    <!-- 这个select语句对应上面的resultMap -->
+    <select id="selectTeachers" resultMap="resultListTeacher">
+        select * from teacher
     </select>
 </mapper>
