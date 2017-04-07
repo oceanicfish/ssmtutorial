@@ -24,4 +24,27 @@
     <select id="selectTeachers" resultMap="resultListTeacher">
         select * from teacher
     </select>
+
+    <insert id="addTeacher" parameterType="com.ssm.model.Teacher" useGeneratedKeys="true" keyProperty="id">
+        insert into teacher (name, rate, skype, qq, pmobile, skills, cdate, status)
+        values (#{name}, #{rate}, #{skype}, #{qq}, #{pmobile}, #{skills}, #{cdate}, #{status})
+    </insert>
+
+    <update id="updateTeacher" parameterType="com.ssm.model.Teacher">
+        update teacher set name = #{name},
+        rate = #{rate},
+        skype = #{skype},
+        qq = #{qq},
+        pmobile = #{pmobile},
+        skills = #{skills},
+        cdate = #{cdate},
+        status = #{status}
+        where id = #{id}
+    </update>
+
+    <delete id="deleteTeacher" parameterType="int">
+        delete from teacher where id = #{id}
+    </delete>
+
+
 </mapper>

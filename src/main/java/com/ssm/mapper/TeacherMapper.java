@@ -12,5 +12,8 @@ public interface TeacherMapper {
 
     public Teacher selectTeacherByID(int id);
     public List<Teacher> selectTeachers();
+    public void addTeacher(Teacher teacher);
+    public void updateTeacher(Teacher teacher);
+    public void deleteTeacher(int id);
 
 }
